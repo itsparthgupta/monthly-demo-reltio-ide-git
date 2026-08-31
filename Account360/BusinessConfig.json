@@ -37,6 +37,11 @@
       "icon": "images/source/reltio.png",
       "priority": 100500,
       "abbreviation": "ReltioCleanser"
+    },
+    {
+      "uri": "configuration/sources/Databricks",
+      "label": "Databricks",
+      "abbreviation": "DBX"
     }
   ],
   "label": "B2B CT",
@@ -14316,6 +14321,116 @@
     {
       "uri": "configuration/entityTypes/Party",
       "abstract": true
+    },
+    {
+      "uri": "configuration/entityTypes/DeliveryPartner",
+      "label": "Delivery Partner",
+      "description": "The organization that delivers (DoorDash, Uber Eats, McDelivery).",
+      "typeColor": "#E67E22",
+      "abstract": false,
+      "attributes": [
+        {
+          "label": "Name",
+          "name": "Name",
+          "type": "String",
+          "hidden": false,
+          "important": true,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Name"
+        },
+        {
+          "label": "Partner ID",
+          "name": "PartnerID",
+          "type": "String",
+          "hidden": false,
+          "important": true,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/PartnerID"
+        },
+        {
+          "label": "Doing Business As",
+          "name": "DoingBusinessAsName",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/DoingBusinessAsName"
+        },
+        {
+          "label": "Status",
+          "name": "Status",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Status"
+        },
+        {
+          "label": "Service Type",
+          "name": "ServiceType",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/ServiceType"
+        },
+        {
+          "label": "Website",
+          "name": "Website",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Website"
+        },
+        {
+          "label": "Phone",
+          "name": "Phone",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Phone"
+        },
+        {
+          "label": "Email",
+          "name": "Email",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Email"
+        },
+        {
+          "label": "Country",
+          "name": "Country",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Country"
+        },
+        {
+          "label": "Partnership Start Date",
+          "name": "PartnershipStartDate",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/PartnershipStartDate"
+        }
+      ],
+      "dataLabelPattern": "{Name}"
     }
   ],
   "roles": [
@@ -15044,6 +15159,73 @@
           },
           "uri": "configuration/relationTypes/affiliatedwith/attributes/Status",
           "lookupCode": "rdm/lookupTypes/App-Account360AffiliatedWithStatus"
+        }
+      ],
+      "direction": "directed"
+    },
+    {
+      "uri": "configuration/relationTypes/HasDeliveryPartner",
+      "label": "Has Delivery Partner",
+      "description": "A restaurant or franchise organization has a delivery partner.",
+      "typeColor": "#E67E22",
+      "startObject": {
+        "uri": "configuration/relationTypes/HasDeliveryPartner/startObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/HasDeliveryPartner/startObject/directionalContext",
+            "labelPattern": "has delivery partner"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/Organization"
+      },
+      "endObject": {
+        "uri": "configuration/relationTypes/HasDeliveryPartner/endObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/HasDeliveryPartner/endObject/directionalContext",
+            "labelPattern": "delivers for"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/DeliveryPartner"
+      },
+      "implicit": false,
+      "attributes": [
+        {
+          "label": "Status",
+          "name": "Status",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/Status"
+        },
+        {
+          "label": "Primary",
+          "name": "Primary",
+          "type": "Boolean",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/Primary"
+        },
+        {
+          "label": "Start Date",
+          "name": "StartDate",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/StartDate"
+        },
+        {
+          "label": "End Date",
+          "name": "EndDate",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/EndDate"
         }
       ],
       "direction": "directed"

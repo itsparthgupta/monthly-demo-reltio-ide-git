@@ -115,6 +115,11 @@
       "uri": "configuration/sources/OC",
       "label": "OC",
       "abbreviation": "Orcale"
+    },
+    {
+      "uri": "configuration/sources/Databricks",
+      "label": "Databricks",
+      "abbreviation": "DBX"
     }
   ],
   "label": "B2B Velocity Pack",
@@ -31262,6 +31267,139 @@
           ]
         }
       ]
+    },
+    {
+      "uri": "configuration/entityTypes/DeliveryPartner",
+      "label": "Delivery Partner",
+      "description": "The organization that delivers (DoorDash, Uber Eats, McDelivery).",
+      "typeColor": "#E67E22",
+      "typeIcon": "images/base_type/org.png",
+      "typeImage": "images/defaultImage/no-org.png",
+      "typeGraphIcon": "images/graphIcon/organization-icon.png",
+      "attributes": [
+        {
+          "label": "Name",
+          "name": "Name",
+          "description": "Name of the delivery partner",
+          "type": "String",
+          "hidden": false,
+          "important": true,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Name",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Partner ID",
+          "name": "PartnerID",
+          "description": "Databricks identifier for the delivery partner",
+          "type": "String",
+          "hidden": false,
+          "important": true,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/PartnerID",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Doing Business As",
+          "name": "DoingBusinessAsName",
+          "description": "Trade name if different from the legal name",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/DoingBusinessAsName",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Status",
+          "name": "Status",
+          "description": "Partner status, for example Active or Inactive",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Status",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Service Type",
+          "name": "ServiceType",
+          "description": "Marketplace, last-mile, or McDelivery",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/ServiceType",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Website",
+          "name": "Website",
+          "description": "Partner website",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Website",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Phone",
+          "name": "Phone",
+          "description": "Partner contact phone",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Phone",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Email",
+          "name": "Email",
+          "description": "Partner contact email",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Email",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Country",
+          "name": "Country",
+          "description": "Primary operating country",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Country",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Partnership Start Date",
+          "name": "PartnershipStartDate",
+          "description": "Date the partner relationship started",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/PartnershipStartDate",
+          "skipInDataAccess": false
+        }
+      ],
+      "dataLabelPattern": "{Name}",
+      "abstract": false
     }
   ],
   "changeRequestTypes": [
@@ -33990,6 +34128,81 @@
       "implicit": false,
       "direction": "directed",
       "entityEndDateStrategy": "END_DATE_RELATION_CROSSWALKS"
+    },
+    {
+      "uri": "configuration/relationTypes/HasDeliveryPartner",
+      "label": "Has Delivery Partner",
+      "description": "A restaurant or franchise organization has a delivery partner.",
+      "typeColor": "#E67E22",
+      "startObject": {
+        "uri": "configuration/relationTypes/HasDeliveryPartner/startObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/HasDeliveryPartner/startObject/directionalContext",
+            "labelPattern": "has delivery partner"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/Organization"
+      },
+      "endObject": {
+        "uri": "configuration/relationTypes/HasDeliveryPartner/endObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/HasDeliveryPartner/endObject/directionalContext",
+            "labelPattern": "delivers for"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/DeliveryPartner"
+      },
+      "implicit": false,
+      "attributes": [
+        {
+          "label": "Status",
+          "name": "Status",
+          "description": "Link status, for example Active or Inactive",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/Status",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Primary",
+          "name": "Primary",
+          "description": "Whether this is the primary delivery partner for the organization",
+          "type": "Boolean",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/Primary",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Start Date",
+          "name": "StartDate",
+          "description": "Date this organization started using the partner",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/StartDate",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "End Date",
+          "name": "EndDate",
+          "description": "Date this organization stopped using the partner",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/EndDate",
+          "skipInDataAccess": false
+        }
+      ],
+      "direction": "directed"
     }
   ],
   "interactionTypes": [
