@@ -1,5 +1,8 @@
-.reltio/
+**/L3.remote-baseline.reltio.json
+**/history/
+**/.reltio/
 .reltio-config-source.json
+.reltio/
 *.reltio.layout.json
 .DS_Store
 Thumbs.db

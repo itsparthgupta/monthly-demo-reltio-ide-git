@@ -1,44 +1,73 @@
 {
   "uri": "configuration",
-  "label": "Insurance",
-  "description": "Demo business configuration for insurance",
-  "schemaVersion": "1.1",
+  "description": "Insurance",
+  "schemaVersion": "1",
   "sources": [
+    {
+      "uri": "configuration/sources/SFDCFSC",
+      "label": "SFDCFSC",
+      "description": "Salesforce Financial Service Cloud",
+      "icon": "images/source/source_s.png",
+      "abbreviation": "SFDCFSC"
+    },
+    {
+      "uri": "configuration/sources/SFDC",
+      "label": "SFDC",
+      "description": "Salesforce",
+      "icon": "images/source/source_s.png",
+      "abbreviation": "SFDC"
+    },
+    {
+      "uri": "configuration/sources/GUIDEWIRE",
+      "label": "GUIDEWIRE",
+      "description": "Guidewire",
+      "icon": "images/source/source_s.png",
+      "abbreviation": "GUIDEWIRE"
+    },
+    {
+      "uri": "configuration/sources/DUCKCREEK",
+      "label": "DUCKCREEK",
+      "description": "DuckCreek",
+      "icon": "images/source/source_s.png",
+      "abbreviation": "DUCKCREEK"
+    },
+    {
+      "uri": "configuration/sources/MAJESCO",
+      "label": "MAJESCO",
+      "description": "Majesco",
+      "icon": "images/source/source_s.png",
+      "abbreviation": "MAJESCO"
+    },
+    {
+      "uri": "configuration/sources/WEBSITE",
+      "label": "WEBSITE",
+      "description": "Website",
+      "icon": "images/source/source_s.png",
+      "abbreviation": "WEBSITE"
+    },
+    {
+      "uri": "configuration/sources/CLAIMS",
+      "label": "CLAIMS",
+      "description": "Claims Management",
+      "icon": "images/source/source_s.png",
+      "abbreviation": "CLAIMS"
+    },
+    {
+      "uri": "configuration/sources/POLICYADM",
+      "label": "POLICYADM",
+      "description": "Policy Admin",
+      "icon": "images/source/source_s.png",
+      "abbreviation": "POLICYADM"
+    },
     {
       "uri": "configuration/sources/Reltio",
       "label": "Reltio",
+      "icon": "images/source/reltio.png",
       "abbreviation": "Reltio"
-    },
-    {
-      "uri": "configuration/sources/Guidewire",
-      "label": "Guidewire",
-      "abbreviation": "GW"
     }
   ],
-  "entityTypes": [
-    {
-      "uri": "configuration/entityTypes/Party",
-      "label": "Party",
-      "searchable": true,
-      "attributes": [
-        {
-          "uri": "configuration/entityTypes/Party/attributes/FullName",
-          "label": "Full Name",
-          "type": "String"
-        }
-      ]
-    },
-    {
-      "uri": "configuration/entityTypes/Policy",
-      "label": "Policy",
-      "searchable": true,
-      "attributes": [
-        {
-          "uri": "configuration/entityTypes/Policy/attributes/PolicyNumber",
-          "label": "Policy Number",
-          "type": "String"
-        }
-      ]
-    }
-  ]
+  "label": "Insurance",
+  "abstract": false,
+  "referenceConfigurationURI": "configuration/_vertical/retio-insurance-2022",
+  "entityTypes": []
 }
