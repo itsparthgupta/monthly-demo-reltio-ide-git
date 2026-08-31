@@ -3640,6 +3640,22 @@
       "imageAttributeURIs": [
         "configuration/entityTypes/Individual/attributes/ImageGallery"
       ]
+    },
+    {
+      "uri": "configuration/entityTypes/Location",
+      "label": "Location",
+      "dataLabelPattern": "{Name}",
+      "attributes": [
+        {
+          "label": "Name",
+          "name": "Name",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/entityTypes/Location/attributes/Name"
+        }
+      ]
     }
   ]
 }

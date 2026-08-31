@@ -1,13 +1,21 @@
 # Monthly demo — Reltio IDE Git integration
 
-McDonald’s-style layout: **B2B** and **B2C** business configuration in one Git repo, at the root and in subfolders. Reltio IDE keeps that folder structure in the tree.
+McDonald’s **DEV** and **TEST** tenant configuration in one Git repository. Same starting L3 in both folders. Reltio IDE keeps this structure in the tree.
 
-| Path | What it is | Demo |
-|---|---|---|
-| `BusinessConfig.json` | Root — Retail | Auto-discovered |
-| `Account360/BusinessConfig.json` | B2B — franchise / restaurant / supplier | Auto-discovered. One-config edit + agent |
-| `Consumer360/BusinessConfig.json` | B2C — guest / loyalty | Auto-discovered. Agent |
-| `DP/dp_b2b/BusinessConfig.json` | Nested B2B pack | Auto-discovered — structure is preserved |
-| `L3.json` | Valid config, different filename | **Add Config** |
+| Path | What it is |
+|---|---|
+| `dev/BusinessConfig.json` | DEV tenant L3 — all modeling work happens here first |
+| `test/BusinessConfig.json` | TEST tenant L3 — starts identical to DEV; promote after review |
 
-Configs are taken from [snehilkamal/reltio-config](https://github.com/snehilkamal/reltio-config).
+**Branches**
+
+| Branch | Role |
+|---|---|
+| `main` | Integration — PRs merge here |
+| `release` | What the data modeler copies into Postman to update a Reltio tenant |
+| `feat/user1-delivery-partner` | User 1 (Priya) — `DeliveryPartner` |
+| `feat/user2-loyalty-offer` | User 2 (Ankur) — `LoyaltyOffer` |
+
+User 3 creates `feat/user3-menuitem` live during the demo.
+
+Config seed: [snehilkamal/reltio-config](https://github.com/snehilkamal/reltio-config) Consumer360, plus a small `Location` type so three parallel entity inserts merge cleanly.
