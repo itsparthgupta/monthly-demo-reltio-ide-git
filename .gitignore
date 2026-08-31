@@ -4,5 +4,7 @@
 .reltio-config-source.json
 .reltio/
 *.reltio.layout.json
+DEMO-SCRIPT.md
+USER-STORY.md
 .DS_Store
 Thumbs.db
