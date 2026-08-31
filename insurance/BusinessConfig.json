@@ -1,0 +1,44 @@
+{
+  "uri": "configuration",
+  "label": "Insurance",
+  "description": "Demo business configuration for insurance",
+  "schemaVersion": "1.1",
+  "sources": [
+    {
+      "uri": "configuration/sources/Reltio",
+      "label": "Reltio",
+      "abbreviation": "Reltio"
+    },
+    {
+      "uri": "configuration/sources/Guidewire",
+      "label": "Guidewire",
+      "abbreviation": "GW"
+    }
+  ],
+  "entityTypes": [
+    {
+      "uri": "configuration/entityTypes/Party",
+      "label": "Party",
+      "searchable": true,
+      "attributes": [
+        {
+          "uri": "configuration/entityTypes/Party/attributes/FullName",
+          "label": "Full Name",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "uri": "configuration/entityTypes/Policy",
+      "label": "Policy",
+      "searchable": true,
+      "attributes": [
+        {
+          "uri": "configuration/entityTypes/Policy/attributes/PolicyNumber",
+          "label": "Policy Number",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}

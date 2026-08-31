@@ -1,0 +1,49 @@
+{
+  "uri": "configuration",
+  "label": "Life Sciences",
+  "description": "Demo business configuration for life sciences",
+  "schemaVersion": "1.1",
+  "sources": [
+    {
+      "uri": "configuration/sources/Reltio",
+      "label": "Reltio",
+      "abbreviation": "Reltio"
+    },
+    {
+      "uri": "configuration/sources/Salesforce",
+      "label": "Salesforce",
+      "abbreviation": "SFDC"
+    }
+  ],
+  "entityTypes": [
+    {
+      "uri": "configuration/entityTypes/HCP",
+      "label": "HCP",
+      "searchable": true,
+      "attributes": [
+        {
+          "uri": "configuration/entityTypes/HCP/attributes/FirstName",
+          "label": "First Name",
+          "type": "String"
+        },
+        {
+          "uri": "configuration/entityTypes/HCP/attributes/LastName",
+          "label": "Last Name",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "uri": "configuration/entityTypes/HCO",
+      "label": "HCO",
+      "searchable": true,
+      "attributes": [
+        {
+          "uri": "configuration/entityTypes/HCO/attributes/Name",
+          "label": "Name",
+          "type": "String"
+        }
+      ]
+    }
+  ]
+}
