@@ -113,6 +113,11 @@
       "icon": "images/source/reltio.png",
       "abbreviation": "ReltioFullNameBuilder",
       "priority": 100500
+    },
+    {
+      "uri": "configuration/sources/Databricks",
+      "label": "Databricks",
+      "abbreviation": "DBX"
     }
   ],
   "entityTypes": [
@@ -12168,6 +12173,179 @@
         }
       ],
       "defaultFacetedAttributes": []
+    },
+    {
+      "uri": "configuration/entityTypes/DeliveryPartner",
+      "label": "Delivery Partner",
+      "description": "The organization that delivers (DoorDash, Uber Eats, McDelivery).",
+      "typeColor": "#E67E22",
+      "typeIcon": "images/entity_icons/default.svg",
+      "typeImage": "images/defaultImage/default.png",
+      "typeGraphIcon": "images/graphIcon/default.svg",
+      "abstract": false,
+      "attributes": [
+        {
+          "label": "Name",
+          "name": "Name",
+          "description": "Name of the delivery partner",
+          "type": "String",
+          "hidden": false,
+          "important": true,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Name",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Partner ID",
+          "name": "PartnerID",
+          "description": "Databricks identifier for the delivery partner",
+          "type": "String",
+          "hidden": false,
+          "important": true,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/PartnerID",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Doing Business As",
+          "name": "DoingBusinessAsName",
+          "description": "Trade name if different from the legal name",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/DoingBusinessAsName",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Status",
+          "name": "Status",
+          "description": "Partner status, for example Active or Inactive",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Status",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Service Type",
+          "name": "ServiceType",
+          "description": "Marketplace, last-mile, or McDelivery",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/ServiceType",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Website",
+          "name": "Website",
+          "description": "Partner website",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Website",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Phone",
+          "name": "Phone",
+          "description": "Partner contact phone",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Phone",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Email",
+          "name": "Email",
+          "description": "Partner contact email",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Email",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Country",
+          "name": "Country",
+          "description": "Primary operating country",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Country",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Partnership Start Date",
+          "name": "PartnershipStartDate",
+          "description": "Date the partner relationship started",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/PartnershipStartDate",
+          "skipInDataAccess": false
+        }
+      ],
+      "dataLabelPattern": "{Name}"
     }
   ],
   "changeRequestTypes": [
@@ -15521,6 +15699,85 @@
               "survivorshipStrategy": "Aggregation"
             }
           ]
+        }
+      ]
+    },
+    {
+      "uri": "configuration/relationTypes/HasDeliveryPartner",
+      "label": "Has Delivery Partner",
+      "description": "A store has a delivery partner.",
+      "typeColor": "#E67E22",
+      "startObject": {
+        "uri": "configuration/relationTypes/HasDeliveryPartner/startObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/HasDeliveryPartner/startObject/directionalContext",
+            "labelPattern": "has delivery partner"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/Store"
+      },
+      "endObject": {
+        "uri": "configuration/relationTypes/HasDeliveryPartner/endObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/HasDeliveryPartner/endObject/directionalContext",
+            "labelPattern": "delivers for"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/DeliveryPartner"
+      },
+      "implicit": false,
+      "direction": "directed",
+      "attributes": [
+        {
+          "label": "Status",
+          "name": "Status",
+          "description": "Link status, for example Active or Inactive",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/Status",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Primary",
+          "name": "Primary",
+          "description": "Whether this is the primary delivery partner for the store",
+          "type": "Boolean",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/Primary",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "Start Date",
+          "name": "StartDate",
+          "description": "Date this store started using the partner",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/StartDate",
+          "skipInDataAccess": false
+        },
+        {
+          "label": "End Date",
+          "name": "EndDate",
+          "description": "Date this store stopped using the partner",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/HasDeliveryPartner/attributes/EndDate",
+          "skipInDataAccess": false
         }
       ]
     }
