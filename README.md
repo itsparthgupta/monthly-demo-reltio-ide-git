@@ -20,4 +20,4 @@ McDonald’s **DEV**, **TEST**, and **PROD** tenant configuration in one Git rep
 
 User 3 creates `feat/user3-menuitem` live during the demo.
 
-Config seed: [snehilkamal/reltio-config](https://github.com/snehilkamal/reltio-config) Consumer360, plus a small `Location` type so three parallel entity inserts merge cleanly.
+Config seed: exact B2B `Account360/BusinessConfig.json` from [snehilkamal/reltio-config](https://github.com/snehilkamal/reltio-config) — copied into `dev/`, `test/`, `prod/`, and root `L3.json`.
