@@ -14302,6 +14302,191 @@
       ]
     },
     {
+      "uri": "configuration/entityTypes/MenuItem",
+      "label": "Menu Item",
+      "description": "A food or beverage item on the restaurant menu.",
+      "dataLabelPattern": "{Name}",
+      "typeColor": "#C0392B",
+      "extendsTypeURI": "configuration/entityTypes/Product",
+      "abstract": false,
+      "attributes": [
+        {
+          "label": "Name",
+          "name": "Name",
+          "description": "Display name of the menu item",
+          "type": "String",
+          "hidden": false,
+          "important": true,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/MenuItem/attributes/Name"
+        },
+        {
+          "label": "Item Code",
+          "name": "ItemCode",
+          "description": "SKU or PLU used to identify the menu item",
+          "type": "String",
+          "hidden": false,
+          "important": true,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/MenuItem/attributes/ItemCode"
+        },
+        {
+          "label": "Category",
+          "name": "Category",
+          "description": "Menu category such as Burgers, Chicken, Breakfast, Beverages, Desserts, or Sides",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "values": [
+            "Burgers",
+            "Chicken",
+            "Breakfast",
+            "Beverages",
+            "Desserts",
+            "Sides",
+            "Salads",
+            "Coffee",
+            "Combo"
+          ],
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/MenuItem/attributes/Category"
+        },
+        {
+          "label": "Description",
+          "name": "Description",
+          "description": "Customer-facing description of the menu item",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/MenuItem/attributes/Description"
+        },
+        {
+          "label": "Brand Name",
+          "name": "BrandName",
+          "description": "Product brand, for example McCafé or McNuggets",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/MenuItem/attributes/BrandName"
+        },
+        {
+          "label": "Size",
+          "name": "Size",
+          "description": "Serving size",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "values": [
+            "Small",
+            "Medium",
+            "Large",
+            "Regular",
+            "Shareable"
+          ],
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/MenuItem/attributes/Size"
+        },
+        {
+          "label": "Price",
+          "name": "Price",
+          "description": "Standard list price",
+          "type": "Number",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/MenuItem/attributes/Price"
+        },
+        {
+          "label": "Calories",
+          "name": "Calories",
+          "description": "Calorie count for the standard serving",
+          "type": "Int",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/MenuItem/attributes/Calories"
+        },
+        {
+          "label": "Available",
+          "name": "Available",
+          "description": "Whether the item is currently offered",
+          "type": "Boolean",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/MenuItem/attributes/Available"
+        },
+        {
+          "label": "Status",
+          "name": "Status",
+          "description": "Lifecycle status, for example Active, Seasonal, or Discontinued",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "values": [
+            "Active",
+            "Seasonal",
+            "Limited Time",
+            "Discontinued"
+          ],
+          "attributeOrdering": {
+            "orderType": "ASC",
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/entityTypes/MenuItem/attributes/Status"
+        }
+      ]
+    },
+    {
       "uri": "configuration/entityTypes/Employee",
       "abstract": true
     },
@@ -15044,6 +15229,183 @@
           },
           "uri": "configuration/relationTypes/affiliatedwith/attributes/Status",
           "lookupCode": "rdm/lookupTypes/App-Account360AffiliatedWithStatus"
+        }
+      ],
+      "direction": "directed"
+    },
+    {
+      "uri": "configuration/relationTypes/OffersMenuItem",
+      "label": "Offers Menu Item",
+      "description": "An organization offers a menu item on its menu.",
+      "typeColor": "#C0392B",
+      "startObject": {
+        "uri": "configuration/relationTypes/OffersMenuItem/startObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/OffersMenuItem/startObject/directionalContext",
+            "labelPattern": "offers"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/Organization"
+      },
+      "endObject": {
+        "uri": "configuration/relationTypes/OffersMenuItem/endObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/OffersMenuItem/endObject/directionalContext",
+            "labelPattern": "offered by"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/MenuItem"
+      },
+      "implicit": false,
+      "attributes": [
+        {
+          "label": "Status",
+          "name": "Status",
+          "description": "Whether this offering is Active or Inactive",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/relationTypes/OffersMenuItem/attributes/Status"
+        },
+        {
+          "label": "Start Date",
+          "name": "StartDate",
+          "description": "Date the organization started offering the item",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "attributeOrdering": {
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/relationTypes/OffersMenuItem/attributes/StartDate"
+        },
+        {
+          "label": "End Date",
+          "name": "EndDate",
+          "description": "Date the organization stopped offering the item",
+          "type": "Date",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "attributeOrdering": {
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/relationTypes/OffersMenuItem/attributes/EndDate"
+        }
+      ],
+      "direction": "directed"
+    },
+    {
+      "uri": "configuration/relationTypes/ServesMenuItem",
+      "label": "Serves Menu Item",
+      "description": "A location serves a menu item.",
+      "typeColor": "#C0392B",
+      "startObject": {
+        "uri": "configuration/relationTypes/ServesMenuItem/startObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/ServesMenuItem/startObject/directionalContext",
+            "labelPattern": "serves"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/Location"
+      },
+      "endObject": {
+        "uri": "configuration/relationTypes/ServesMenuItem/endObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/ServesMenuItem/endObject/directionalContext",
+            "labelPattern": "served at"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/MenuItem"
+      },
+      "implicit": false,
+      "attributes": [
+        {
+          "label": "Status",
+          "name": "Status",
+          "description": "Whether this location currently serves the item",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "attributeOrdering": {
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/relationTypes/ServesMenuItem/attributes/Status"
+        },
+        {
+          "label": "Available",
+          "name": "Available",
+          "description": "Whether the item is available at this location today",
+          "type": "Boolean",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/ServesMenuItem/attributes/Available"
+        },
+        {
+          "label": "Price",
+          "name": "Price",
+          "description": "Location-specific price override",
+          "type": "Number",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/relationTypes/ServesMenuItem/attributes/Price"
+        }
+      ],
+      "direction": "directed"
+    },
+    {
+      "uri": "configuration/relationTypes/ComboContains",
+      "label": "Combo Contains",
+      "description": "A combo or meal includes another menu item.",
+      "typeColor": "#C0392B",
+      "startObject": {
+        "uri": "configuration/relationTypes/ComboContains/startObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/ComboContains/startObject/directionalContext",
+            "labelPattern": "contains"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/MenuItem"
+      },
+      "endObject": {
+        "uri": "configuration/relationTypes/ComboContains/endObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/ComboContains/endObject/directionalContext",
+            "labelPattern": "included in"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/MenuItem"
+      },
+      "implicit": false,
+      "attributes": [
+        {
+          "label": "Quantity",
+          "name": "Quantity",
+          "description": "Number of this item included in the combo",
+          "type": "Int",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "attributeOrdering": {
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/relationTypes/ComboContains/attributes/Quantity"
         }
       ],
       "direction": "directed"
