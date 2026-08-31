@@ -100,6 +100,22 @@
   ],
   "entityTypes": [
     {
+      "uri": "configuration/entityTypes/DeliveryPartner",
+      "label": "Delivery Partner",
+      "dataLabelPattern": "{Name}",
+      "attributes": [
+        {
+          "label": "Name",
+          "name": "Name",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/Name"
+        }
+      ]
+    },
+    {
       "uri": "configuration/entityTypes/Party",
       "label": "Party",
       "description": "Organization entity type details",
