@@ -1,6 +1,6 @@
 {
   "uri": "configuration",
-  "description": "Account360 cicd-test 20260901-1648",
+  "description": "Account360",
   "schemaVersion": "1.1",
   "sources": [
     {
@@ -14302,22 +14302,6 @@
       ]
     },
     {
-      "uri": "configuration/entityTypes/MenuItem",
-      "label": "Menu Item",
-      "dataLabelPattern": "{Name}",
-      "attributes": [
-        {
-          "label": "Name",
-          "name": "Name",
-          "type": "String",
-          "hidden": false,
-          "important": false,
-          "system": false,
-          "uri": "configuration/entityTypes/MenuItem/attributes/Name"
-        }
-      ]
-    },
-    {
       "uri": "configuration/entityTypes/Employee",
       "abstract": true
     },
@@ -14332,22 +14316,6 @@
     {
       "uri": "configuration/entityTypes/Party",
       "abstract": true
-    },
-    {
-      "uri": "configuration/entityTypes/LoyaltyOffer",
-      "label": "Loyalty Offer",
-      "dataLabelPattern": "{Name}",
-      "attributes": [
-        {
-          "label": "Name",
-          "name": "Name",
-          "type": "String",
-          "hidden": false,
-          "important": false,
-          "system": false,
-          "uri": "configuration/entityTypes/LoyaltyOffer/attributes/Name"
-        }
-      ]
     }
   ],
   "roles": [
