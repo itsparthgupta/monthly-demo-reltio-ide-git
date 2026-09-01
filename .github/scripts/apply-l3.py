@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import base64
 import json
 import os
 import sys
@@ -14,6 +15,8 @@ AUTH_URL = os.environ.get("RELTIO_AUTH_URL") or "https://auth-stg.reltio.com/oau
 ENVIRONMENT = os.environ.get("RELTIO_ENVIRONMENT", "").strip()
 TENANT = os.environ.get("RELTIO_TENANT", "").strip()
 CONFIG_PATH = os.environ.get("RELTIO_CONFIG_PATH", "dev/BusinessConfig.json")
+USERNAME = os.environ.get("RELTIO_USERNAME", "").strip()
+PASSWORD = os.environ.get("RELTIO_PASSWORD", "").strip()
 CLIENT_ID = os.environ.get("RELTIO_CLIENT_ID", "").strip()
 CLIENT_SECRET = os.environ.get("RELTIO_CLIENT_SECRET", "").strip()
 
@@ -35,16 +38,33 @@ def request(url: str, *, data: bytes | None = None, headers: dict[str, str], met
 
 
 def access_token() -> str:
-    if not CLIENT_ID or not CLIENT_SECRET:
-        fail("Set GitHub secrets RELTIO_CLIENT_ID and RELTIO_CLIENT_SECRET.")
-    payload = urllib.parse.urlencode(
-        {
-            "grant_type": "client_credentials",
-            "client_id": CLIENT_ID,
-            "client_secret": CLIENT_SECRET,
+    # reltio_ui client_credentials has no tenant. Password grant is required to PUT L3.
+    if USERNAME and PASSWORD:
+        if not CLIENT_ID or not CLIENT_SECRET:
+            fail("Password grant also needs secrets RELTIO_CLIENT_ID and RELTIO_CLIENT_SECRET.")
+        payload = urllib.parse.urlencode(
+            {
+                "grant_type": "password",
+                "username": USERNAME,
+                "password": PASSWORD,
+            }
+        ).encode()
+        basic = base64.b64encode(f"{CLIENT_ID}:{CLIENT_SECRET}".encode()).decode()
+        headers = {
+            "Authorization": f"Basic {basic}",
+            "Content-Type": "application/x-www-form-urlencoded",
         }
-    ).encode()
-    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    elif CLIENT_ID and CLIENT_SECRET:
+        payload = urllib.parse.urlencode(
+            {
+                "grant_type": "client_credentials",
+                "client_id": CLIENT_ID,
+                "client_secret": CLIENT_SECRET,
+            }
+        ).encode()
+        headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    else:
+        fail("Set GitHub secrets RELTIO_USERNAME + RELTIO_PASSWORD (and RELTIO_CLIENT_ID + RELTIO_CLIENT_SECRET).")
 
     status, body = request(AUTH_URL, data=payload, headers=headers, method="POST")
     if status >= 300:
