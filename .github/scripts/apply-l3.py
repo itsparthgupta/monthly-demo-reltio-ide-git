@@ -11,7 +11,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-AUTH_URL = os.environ.get("RELTIO_AUTH_URL", "https://auth.reltio.com/oauth/token")
+AUTH_URL = os.environ.get("RELTIO_AUTH_URL") or "https://auth-stg.reltio.com/oauth/token"
 ENVIRONMENT = os.environ.get("RELTIO_ENVIRONMENT", "").strip()
 TENANT = os.environ.get("RELTIO_TENANT", "").strip()
 CONFIG_PATH = os.environ.get("RELTIO_CONFIG_PATH", "dev/BusinessConfig.json")

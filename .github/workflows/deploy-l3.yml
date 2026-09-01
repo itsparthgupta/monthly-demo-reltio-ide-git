@@ -15,6 +15,7 @@ jobs:
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     env:
+      RELTIO_AUTH_URL: ${{ vars.RELTIO_AUTH_URL }}
       RELTIO_ENVIRONMENT: ${{ vars.RELTIO_ENVIRONMENT }}
       RELTIO_TENANT: ${{ vars.RELTIO_TENANT }}
       RELTIO_CONFIG_PATH: ${{ vars.RELTIO_CONFIG_PATH || 'dev/BusinessConfig.json' }}
