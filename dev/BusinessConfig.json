@@ -14302,6 +14302,22 @@
       ]
     },
     {
+      "uri": "configuration/entityTypes/MenuItem",
+      "label": "Menu Item",
+      "dataLabelPattern": "{Name}",
+      "attributes": [
+        {
+          "label": "Name",
+          "name": "Name",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/entityTypes/MenuItem/attributes/Name"
+        }
+      ]
+    },
+    {
       "uri": "configuration/entityTypes/Employee",
       "abstract": true
     },
