@@ -14316,6 +14316,12 @@
     {
       "uri": "configuration/entityTypes/Party",
       "abstract": true
+    },
+    {
+      "uri": "configuration/entityTypes/DeliverPartner",
+      "label": "DeliverPartner",
+      "dataLabelPattern": "",
+      "attributes": []
     }
   ],
   "roles": [
