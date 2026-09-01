@@ -20,4 +20,9 @@ McDonald’s **DEV**, **TEST**, and **PROD** tenant configuration in one Git rep
 
 User 3 creates `feat/user3-menuitem` live during the demo.
 
+**CI/CD (demo):** when a PR is merged to `main`, GitHub Actions PUTs `dev/BusinessConfig.json` to the Reltio tenant.
+
+Repo **Variables:** `RELTIO_ENVIRONMENT` (e.g. `tst-01`), `RELTIO_TENANT`.  
+Repo **Secrets:** `RELTIO_USERNAME` + `RELTIO_PASSWORD`, or `RELTIO_CLIENT_ID` + `RELTIO_CLIENT_SECRET`.
+
 Config seed: exact B2B `Account360/BusinessConfig.json` from [snehilkamal/reltio-config](https://github.com/snehilkamal/reltio-config) — copied into `dev/`, `test/`, `prod/`, and root `L3.json`.

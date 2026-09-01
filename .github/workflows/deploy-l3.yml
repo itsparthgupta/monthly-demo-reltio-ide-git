@@ -1,0 +1,28 @@
+name: Apply L3 to Reltio tenant
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  apply:
+    name: PUT BusinessConfig to tenant
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      RELTIO_ENVIRONMENT: ${{ vars.RELTIO_ENVIRONMENT }}
+      RELTIO_TENANT: ${{ vars.RELTIO_TENANT }}
+      RELTIO_CONFIG_PATH: ${{ vars.RELTIO_CONFIG_PATH || 'dev/BusinessConfig.json' }}
+      RELTIO_USERNAME: ${{ secrets.RELTIO_USERNAME }}
+      RELTIO_PASSWORD: ${{ secrets.RELTIO_PASSWORD }}
+      RELTIO_CLIENT_ID: ${{ secrets.RELTIO_CLIENT_ID }}
+      RELTIO_CLIENT_SECRET: ${{ secrets.RELTIO_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply configuration
+        run: python3 .github/scripts/apply-l3.py
