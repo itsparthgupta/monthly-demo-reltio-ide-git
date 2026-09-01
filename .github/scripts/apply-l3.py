@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import base64
 import json
 import os
 import sys
@@ -15,10 +14,8 @@ AUTH_URL = os.environ.get("RELTIO_AUTH_URL") or "https://auth-stg.reltio.com/oau
 ENVIRONMENT = os.environ.get("RELTIO_ENVIRONMENT", "").strip()
 TENANT = os.environ.get("RELTIO_TENANT", "").strip()
 CONFIG_PATH = os.environ.get("RELTIO_CONFIG_PATH", "dev/BusinessConfig.json")
-USERNAME = os.environ.get("RELTIO_USERNAME", "")
-PASSWORD = os.environ.get("RELTIO_PASSWORD", "")
-CLIENT_ID = os.environ.get("RELTIO_CLIENT_ID") or "reltio_ui"
-CLIENT_SECRET = os.environ.get("RELTIO_CLIENT_SECRET", "")
+CLIENT_ID = os.environ.get("RELTIO_CLIENT_ID", "").strip()
+CLIENT_SECRET = os.environ.get("RELTIO_CLIENT_SECRET", "").strip()
 
 
 def fail(message: str, code: int = 1) -> None:
@@ -38,31 +35,16 @@ def request(url: str, *, data: bytes | None = None, headers: dict[str, str], met
 
 
 def access_token() -> str:
-    if CLIENT_SECRET and not USERNAME:
-        payload = urllib.parse.urlencode({"grant_type": "client_credentials"}).encode()
-        basic = base64.b64encode(f"{CLIENT_ID}:{CLIENT_SECRET}".encode()).decode()
-        headers = {
-            "Authorization": f"Basic {basic}",
-            "Content-Type": "application/x-www-form-urlencoded",
+    if not CLIENT_ID or not CLIENT_SECRET:
+        fail("Set GitHub secrets RELTIO_CLIENT_ID and RELTIO_CLIENT_SECRET.")
+    payload = urllib.parse.urlencode(
+        {
+            "grant_type": "client_credentials",
+            "client_id": CLIENT_ID,
+            "client_secret": CLIENT_SECRET,
         }
-    elif USERNAME and PASSWORD:
-        payload = urllib.parse.urlencode(
-            {
-                "grant_type": "password",
-                "username": USERNAME,
-                "password": PASSWORD,
-            }
-        ).encode()
-        basic = base64.b64encode(f"{CLIENT_ID}:{CLIENT_SECRET}".encode()).decode()
-        headers = {
-            "Authorization": f"Basic {basic}",
-            "Content-Type": "application/x-www-form-urlencoded",
-        }
-    else:
-        fail(
-            "Missing Reltio credentials. Set GitHub secrets RELTIO_USERNAME + RELTIO_PASSWORD "
-            "or RELTIO_CLIENT_ID + RELTIO_CLIENT_SECRET."
-        )
+    ).encode()
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
     status, body = request(AUTH_URL, data=payload, headers=headers, method="POST")
     if status >= 300:
