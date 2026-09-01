@@ -19,6 +19,8 @@ jobs:
       RELTIO_ENVIRONMENT: ${{ vars.RELTIO_ENVIRONMENT }}
       RELTIO_TENANT: ${{ vars.RELTIO_TENANT }}
       RELTIO_CONFIG_PATH: ${{ vars.RELTIO_CONFIG_PATH || 'dev/BusinessConfig.json' }}
+      RELTIO_USERNAME: ${{ secrets.RELTIO_USERNAME }}
+      RELTIO_PASSWORD: ${{ secrets.RELTIO_PASSWORD }}
       RELTIO_CLIENT_ID: ${{ secrets.RELTIO_CLIENT_ID }}
       RELTIO_CLIENT_SECRET: ${{ secrets.RELTIO_CLIENT_SECRET }}
     steps:
