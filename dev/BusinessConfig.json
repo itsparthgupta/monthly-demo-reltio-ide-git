@@ -14316,6 +14316,22 @@
     {
       "uri": "configuration/entityTypes/Party",
       "abstract": true
+    },
+    {
+      "uri": "configuration/entityTypes/LoyaltyOffer",
+      "label": "Loyalty Offer",
+      "dataLabelPattern": "{Name}",
+      "attributes": [
+        {
+          "label": "Name",
+          "name": "Name",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/entityTypes/LoyaltyOffer/attributes/Name"
+        }
+      ]
     }
   ],
   "roles": [
