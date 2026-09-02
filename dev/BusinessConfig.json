@@ -37,6 +37,13 @@
       "icon": "images/source/reltio.png",
       "priority": 100500,
       "abbreviation": "ReltioCleanser"
+    },
+    {
+      "uri": "configuration/sources/Source1",
+      "label": "Source1",
+      "abbreviation": "Source1",
+      "description": "",
+      "icon": ""
     }
   ],
   "label": "B2B CT",
