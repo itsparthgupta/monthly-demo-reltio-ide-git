@@ -44,6 +44,11 @@
       "abbreviation": "Source1",
       "description": "",
       "icon": ""
+    },
+    {
+      "uri": "configuration/sources/Instagram",
+      "label": "Instagram",
+      "abbreviation": "Instagram"
     }
   ],
   "label": "B2B CT",
