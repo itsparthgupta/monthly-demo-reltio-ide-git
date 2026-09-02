@@ -56,6 +56,11 @@
       "abbreviation": "Source2",
       "description": "",
       "icon": ""
+    },
+    {
+      "uri": "configuration/sources/ServiceNow",
+      "label": "ServiceNow",
+      "abbreviation": "ServiceNow"
     }
   ],
   "label": "B2B CT",
