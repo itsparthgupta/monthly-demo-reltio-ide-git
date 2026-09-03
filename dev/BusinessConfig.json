@@ -14362,6 +14362,49 @@
       "label": "DeliverPartner",
       "dataLabelPattern": "",
       "attributes": []
+    },
+    {
+      "uri": "configuration/entityTypes/Restaurant",
+      "label": "Restaurant",
+      "dataLabelPattern": "{Name}",
+      "attributes": [
+        {
+          "label": "Name",
+          "name": "Name",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/entityTypes/Restaurant/attributes/Name"
+        },
+        {
+          "label": "Store Number",
+          "name": "StoreNumber",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/entityTypes/Restaurant/attributes/StoreNumber"
+        },
+        {
+          "label": "Status",
+          "name": "Status",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/entityTypes/Restaurant/attributes/Status"
+        },
+        {
+          "label": "City",
+          "name": "City",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "uri": "configuration/entityTypes/Restaurant/attributes/City"
+        }
+      ]
     }
   ],
   "roles": [
@@ -15090,6 +15133,48 @@
           },
           "uri": "configuration/relationTypes/affiliatedwith/attributes/Status",
           "lookupCode": "rdm/lookupTypes/App-Account360AffiliatedWithStatus"
+        }
+      ],
+      "direction": "directed"
+    },
+    {
+      "uri": "configuration/relationTypes/OffersMenuItem",
+      "label": "Offers Menu Item",
+      "description": "A restaurant offers a menu item.",
+      "typeColor": "#2E7D32",
+      "startObject": {
+        "uri": "configuration/relationTypes/OffersMenuItem/startObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/OffersMenuItem/startObject/directionalContext",
+            "labelPattern": "offers"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/Restaurant"
+      },
+      "endObject": {
+        "uri": "configuration/relationTypes/OffersMenuItem/endObject",
+        "directionalContext": [
+          {
+            "uri": "configuration/relationTypes/OffersMenuItem/endObject/directionalContext",
+            "labelPattern": "offered at"
+          }
+        ],
+        "objectTypeURI": "configuration/entityTypes/MenuItem"
+      },
+      "implicit": false,
+      "attributes": [
+        {
+          "label": "Status",
+          "name": "Status",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "attributeOrdering": {
+            "orderingStrategy": "LUD"
+          },
+          "uri": "configuration/relationTypes/OffersMenuItem/attributes/Status"
         }
       ],
       "direction": "directed"
