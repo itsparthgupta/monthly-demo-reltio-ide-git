@@ -37,30 +37,6 @@
       "icon": "images/source/reltio.png",
       "priority": 100500,
       "abbreviation": "ReltioCleanser"
-    },
-    {
-      "uri": "configuration/sources/Source1",
-      "label": "Source1",
-      "abbreviation": "Source1",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "uri": "configuration/sources/Instagram",
-      "label": "Instagram",
-      "abbreviation": "Instagram"
-    },
-    {
-      "uri": "configuration/sources/Source2",
-      "label": "Source2",
-      "abbreviation": "Source2",
-      "description": "",
-      "icon": ""
-    },
-    {
-      "uri": "configuration/sources/ServiceNow",
-      "label": "ServiceNow",
-      "abbreviation": "ServiceNow"
     }
   ],
   "label": "B2B CT",
@@ -14326,22 +14302,6 @@
       ]
     },
     {
-      "uri": "configuration/entityTypes/MenuItem",
-      "label": "Menu Item",
-      "dataLabelPattern": "{Name}",
-      "attributes": [
-        {
-          "label": "Name",
-          "name": "Name",
-          "type": "String",
-          "hidden": false,
-          "important": false,
-          "system": false,
-          "uri": "configuration/entityTypes/MenuItem/attributes/Name"
-        }
-      ]
-    },
-    {
       "uri": "configuration/entityTypes/Employee",
       "abstract": true
     },
@@ -14356,12 +14316,6 @@
     {
       "uri": "configuration/entityTypes/Party",
       "abstract": true
-    },
-    {
-      "uri": "configuration/entityTypes/DeliverPartner",
-      "label": "DeliverPartner",
-      "dataLabelPattern": "",
-      "attributes": []
     }
   ],
   "roles": [
