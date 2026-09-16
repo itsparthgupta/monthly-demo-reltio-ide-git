@@ -12519,7 +12519,7 @@
             {
               "label": "Can Store PII Elsewhere",
               "name": "CanStorePiiElsewhere",
-              "description": "Indication that you can store the customer\ufffds personally identifiable information (PII) outside of their regisration area. For example, you could store an EU citizen\ufffds PII data in the US",
+              "description": "Indication that you can store the customer�s personally identifiable information (PII) outside of their regisration area. For example, you could store an EU citizen�s PII data in the US",
               "type": "Boolean",
               "hidden": false,
               "important": false,
@@ -14316,6 +14316,53 @@
     {
       "uri": "configuration/entityTypes/Party",
       "abstract": true
+    },
+    {
+      "uri": "configuration/entityTypes/DeliveryPartner",
+      "label": "Delivery Partner",
+      "dataLabelPattern": "{PartnerName}",
+      "attributes": [
+        {
+          "label": "Partner Name",
+          "name": "PartnerName",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/PartnerName"
+        },
+        {
+          "label": "Partner Code",
+          "name": "PartnerCode",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/PartnerCode"
+        },
+        {
+          "label": "Service Radius (km)",
+          "name": "ServiceRadiusKm",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/ServiceRadiusKm"
+        },
+        {
+          "label": "Contact Phone",
+          "name": "ContactPhone",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/DeliveryPartner/attributes/ContactPhone"
+        }
+      ]
     }
   ],
   "roles": [
