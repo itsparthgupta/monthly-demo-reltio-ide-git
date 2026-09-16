@@ -12519,7 +12519,7 @@
             {
               "label": "Can Store PII Elsewhere",
               "name": "CanStorePiiElsewhere",
-              "description": "Indication that you can store the customer\ufffds personally identifiable information (PII) outside of their regisration area. For example, you could store an EU citizen\ufffds PII data in the US",
+              "description": "Indication that you can store the customer�s personally identifiable information (PII) outside of their regisration area. For example, you could store an EU citizen�s PII data in the US",
               "type": "Boolean",
               "hidden": false,
               "important": false,
@@ -14316,6 +14316,63 @@
     {
       "uri": "configuration/entityTypes/Party",
       "abstract": true
+    },
+    {
+      "uri": "configuration/entityTypes/LoyaltyOffer",
+      "label": "Loyalty Offer",
+      "dataLabelPattern": "{OfferName}",
+      "attributes": [
+        {
+          "label": "Offer Name",
+          "name": "OfferName",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/LoyaltyOffer/attributes/OfferName"
+        },
+        {
+          "label": "Offer Code",
+          "name": "OfferCode",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/LoyaltyOffer/attributes/OfferCode"
+        },
+        {
+          "label": "Discount Percent",
+          "name": "DiscountPercent",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/LoyaltyOffer/attributes/DiscountPercent"
+        },
+        {
+          "label": "Valid From",
+          "name": "ValidFrom",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/LoyaltyOffer/attributes/ValidFrom"
+        },
+        {
+          "label": "Valid To",
+          "name": "ValidTo",
+          "type": "String",
+          "hidden": false,
+          "important": false,
+          "system": false,
+          "searchable": true,
+          "uri": "configuration/entityTypes/LoyaltyOffer/attributes/ValidTo"
+        }
+      ]
     }
   ],
   "roles": [
