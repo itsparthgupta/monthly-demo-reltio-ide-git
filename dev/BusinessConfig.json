@@ -44,6 +44,13 @@
       "abbreviation": "SAP",
       "description": "",
       "icon": ""
+    },
+    {
+      "uri": "configuration/sources/Databricks",
+      "label": "Databricks",
+      "abbreviation": "Databricks",
+      "description": "",
+      "icon": ""
     }
   ],
   "label": "B2B CT",
