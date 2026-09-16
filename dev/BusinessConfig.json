@@ -37,6 +37,13 @@
       "icon": "images/source/reltio.png",
       "priority": 100500,
       "abbreviation": "ReltioCleanser"
+    },
+    {
+      "uri": "configuration/sources/SAP",
+      "label": "SAP",
+      "abbreviation": "SAP",
+      "description": "",
+      "icon": ""
     }
   ],
   "label": "B2B CT",
